@@ -9,7 +9,7 @@ class Router{
             'method' => 'index'
         ],
         '#^/countries$#' => [
-            'controller' => 'controller.countries',
+            'controller' => 'controller.country',
             'method' => 'index'
         ],
     ];

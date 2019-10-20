@@ -28,4 +28,18 @@ class CityRepository
         $results = $query->fetchAll(\PDO::FETCH_CLASS,'App\API\Entity\City');
         return $results;
     }
+
+    
+	public function getCapital(int $id){
+		$sql = "
+			SELECT city.*
+			FROM destination.city
+			WHERE city.id = $id;
+		";
+		
+		$query = $this->connection->prepare($sql);
+		$query->execute();
+		$result = $query->fetchAll(\PDO::FETCH_CLASS, 'App\API\Entity\City');
+		return $result[0];
+	}
 }
